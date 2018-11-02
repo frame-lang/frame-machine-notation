@@ -5,7 +5,7 @@
 
 Syntax | Definition | FMN 
 --- | --- | ---
-# | Controller | #LoggedOut 
+<span>#</span> | Controller | #LoggedOut 
 
 
 
