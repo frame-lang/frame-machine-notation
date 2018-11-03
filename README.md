@@ -1,5 +1,5 @@
 
-# Frame Machine Notation (FMN) 2.0
+# Frame Machine Notation (FMN) 0.1
 
 
 FMN Syntax | Definition | Example 
