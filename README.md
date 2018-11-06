@@ -43,9 +43,9 @@ class MyController {}
 -interface-                             // interface block declaration
         m1                              // no parameters or return value
         m2[param1 param2]               // typeless parameters
-        m3[param1:string param2:int]    // types parameters
+        m3[param1:string param2:int]    // typed parameters
         m4:boolean                      // typed return value
-        m5[param4 param5:string]:int    // parameters and return value
+        m5[param4 param5:string]:int    // mixed parameters and return value
         m6 @(|6m|)                      // message alias
         
 // Pseudocode implementation
@@ -60,8 +60,7 @@ class MyController {}
 		var e = new FrameEvent("m2", params)
 		_state(e) 
 	}
- 
-   
+  
 	func m3(param1:string, param2:int) { 
 		var params = { "param1":param1, "param2":param2 }
 		var e = new FrameEvent("m3", params)
