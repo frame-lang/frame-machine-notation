@@ -108,8 +108,8 @@ class MyController {}
                         ^			// ^    -- return token
                 
         $Working => $Default 			// =>   -- Dispatch operator to send event to $Default
-		|>| startWorking() ^		// |>| 	-- enter event selector
-		|<| stopWorking() ^		// |<|  -- exit event selector
+		|>| enterWorking() ^		// |>| 	-- enter event selector
+		|<| exitWorking() ^		// |<|  -- exit event selector
              
         $End					// $End state has no event handlers. 
                 
@@ -131,11 +131,11 @@ class MyController {}
     
 	func Working(e:FrameEvent) {		// $Working
 		if (e._msg == ">") {		// |>|
-		    startWorking()		// startWorking()
+		    enterWorking()		// enterWorking()
 		    return			// ^
 		}
 		if (e._msg == "<") {		// |<|
-		    stopWorking()		// stopWorking()
+		    exitWorking()		// exitWorking()
 		    return			// ^
 		}
 
