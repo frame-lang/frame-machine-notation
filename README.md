@@ -164,6 +164,7 @@ class MyController {}
 
 ## States and Event Handlers
 
+```
 // FMN
 
 	$Working 
@@ -188,18 +189,14 @@ class MyController {}
 		}
 		if (e._msg == "e1") {		// |e1|
 			processE1( 		// processE1(@[x] @[y])
-				e.params['x']
-			)	e.params['y']
+				e._params['x']
+			)	e._params['y']
 		    	return			// ^
 		}
 		if (e._msg == "e2") {		// |e1|
-			var x = e.params['x']	// [x y]
-			var y = e.params['y']
+			var x = e._params['x']	// [x y]
+			var y = e._params['y']
 			processE2(x,y)		// processE2(x y)
-		    	return			// ^
-		}
-		if (e._msg == ">") {		// |>|
-		    	enterState()		// enterState()
 		    	return			// ^
 		}
 		if (e._msg == "<") {		// |<|
@@ -211,3 +208,4 @@ class MyController {}
 		    	return			// ^
 		}
 	} 
+```
