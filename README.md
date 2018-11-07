@@ -116,7 +116,7 @@ class MyController {}
         $Default				// $Default parent state or "mode"
 		|<<| -> $End ^			// |<<|  -- stop event selector token
 
-// Implementation
+// Pseudocode Implementation
  
     	// -machine-
     
@@ -161,7 +161,9 @@ class MyController {}
 
 ```
 
-## State Event Handlers
+## States and Event Handlers
+
+// FMN
 
 	$Working 
 		|>>| startMachine() ^		// start machine event
@@ -171,7 +173,9 @@ class MyController {}
 		|<| exitState() ^		// exit state event
 		|<<| stopMachine() ^		// stop machine event
 		
-		
+
+// Pseudocode Implementation
+
 	func Working(e:FrameEvent) {		// $Working
 		if (e._msg == ">>") {		// |>|
 		    	startMachine()		// startMachine()
