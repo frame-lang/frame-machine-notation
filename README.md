@@ -40,13 +40,13 @@ class MyController {}
 ```
 // FMN
 
--interface-                             // interface block declaration
-        m1                              // no parameters or return value
-        m2[param1 param2]               // typeless parameters
-        m3[param1:string param2:int]    // typed parameters
-        m4:boolean                      // typed return value
-        m5[param4 param5:string]:int    // mixed parameters and return value
-        m6 @(|6m|)                      // message alias
+**-interface-**                             // interface block declaration
+        **m1**                              // no parameters or return value
+        m2**[param1 param2]**               // typeless parameters
+        m3**[param1:string param2:int]**    // typed parameters
+        m4**:boolean**                      // typed return value
+        m5**[param4 param5:string]:int**    // mixed parameters and return value
+        m6 **@(|6m|)**                      // message alias
         
 // Pseudocode implementation
 
