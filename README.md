@@ -9,11 +9,16 @@ FMN Syntax | Definition | Example | Gist
 $ | Frame State | $Begin | 
 @ | Frame Event | @ | 
 @&#124;message&#124; or &#124;message&#124; | Frame Event Message Selector | &#124;buttonClick&#124;
+@&#124;>>&#124; | Frame Start Message | @&#124;>>&#124; | 
+@&#124;<<&#124; | Frame Stop Message | @&#124;<<&#124; | 
+@&#124;>&#124; | Frame Enter State Message | @&#124;>&#124; |
+@&#124;<&#124; | Frame Exit State Message | @&#124;<&#124; |
 @[param] or [param] | Frame Event parameter attribute | @[firstName] |
 @^ or ^(expr) | Frame Event return attribute | ^("YES!") | 
 ^ | Return statement | ^ |
 ->> | Change state operator | ->> $Working | [Change State](https://gist.github.com/frame-lang/ebec407ea6956e1d9dd7d0c3aa6a0df1)
 -> | Transition operator | -> $Working | [Transition](https://gist.github.com/frame-lang/47cb1e87715c38861a5b0ebbda5e3bce)
+
 
 ## General Syntax
 
