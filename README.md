@@ -101,50 +101,50 @@ class MyController {}
 ```
 // FMN
 
--machine-                             	// machine block declaration
-	$Begin 				// $    -- token indicates state definition
-		|>>| 			// |>>| -- start event selector
-			-> $Working 	// ->   -- transition token
-                        ^		// ^    -- return token
+-machine-                             		// machine block declaration
+	$Begin 					// $    -- token indicates state definition
+		|>>| 				// |>>| -- start event selector
+			-> $Working 		// ->   -- transition token
+                        ^			// ^    -- return token
                 
-        $Working => $Default 		// =>   -- Dispatch operator to send event to $Default
-		|>| startWorking() ^	// |>| 	-- enter event selector
-		|<| stopWorking() ^	// |<|  -- exit event selector
+        $Working => $Default 			// =>   -- Dispatch operator to send event to $Default
+		|>| startWorking() ^		// |>| 	-- enter event selector
+		|<| stopWorking() ^		// |<|  -- exit event selector
              
-        $End				// $End state has no event handlers. 
+        $End					// $End state has no event handlers. 
                 
-        $Default			// $Default parent state or "mode"
-		|<<| -> $End ^		// |<<|  -- stop event selector token
+        $Default				// $Default parent state or "mode"
+		|<<| -> $End ^			// |<<|  -- stop event selector token
 
 // Implementation
  
-	func Begin(e:FrameEvent) {
-		if (e._msg == ">>") {
-		    _transition(Working)
-		    return
+	func Begin(e:FrameEvent) {		// $Begin
+		if (e._msg == ">>") {		// |>>|
+		    _transition(Working)	// -> $Working
+		    return			// ^
 		}
 	}
     
-	func Working(e:FrameEvent) {
-		if (e._msg == ">") {
-		    startWorking()
-		    return
+	func Working(e:FrameEvent) {		// $Working
+		if (e._msg == ">") {		// |>|
+		    startWorking()		// startWorking()
+		    return			// ^
 		}
-		if (e._msg == "<") {
-		    stopWorking()
-		    return
+		if (e._msg == "<") {		// |<|
+		    stopWorking()		// stopWorking()
+		    return			// ^
 		}
 
-		Default(e)
+		Default(e)			// $Working => $Default
 	}  
 
-	func End(e:FrameEvent) {
+	func End(e:FrameEvent) {		// $End
 	}  
 
-	func Default(e:FrameEvent) {
-		if (e._msg == "<<") {
-		    _transition(End)
-		    return
+	func Default(e:FrameEvent) {		// $Default
+		if (e._msg == "<<") {		// |<<|
+		    _transition(End)		// -> $End
+		    return			// ^
 		}	
 	}  
 
