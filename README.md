@@ -8,11 +8,12 @@ FMN Syntax | Definition | Example | Gist
 -block- | Block Section | -machine- |
 $ | Frame State | $Begin | 
 @ | Frame Event | @ | 
-@&#124;message&#124; or &#124;message&#124; | Frame Event Message Selector | &#124;buttonClick&#124;
-@&#124;>>&#124; | Frame Start Message | @&#124;>>&#124; | 
-@&#124;<<&#124; | Frame Stop Message | @&#124;<<&#124; | 
-@&#124;>&#124; | Frame Enter State Message | @&#124;>&#124; |
-@&#124;<&#124; | Frame Exit State Message | @&#124;<&#124; |
+@&#124;message&#124; or &#124;message&#124; | Frame event message selector | &#124;buttonClick&#124; |
+&#124;e1&#124;e2&#124;e3&#124;e1&#124;e2&#124;e3 | Multi-messge selector | &#124;200&#124;201&#124;202&#124; |
+@&#124;>>&#124; | Frame start message | @&#124;>>&#124; | 
+@&#124;<<&#124; | Frame stop message | @&#124;<<&#124; | 
+@&#124;>&#124; | Frame enter state message | @&#124;>&#124; |
+@&#124;<&#124; | Frame exit state message | @&#124;<&#124; |
 @[param] or [param] | Frame Event parameter attribute | @[firstName] |
 @^ or ^(expr) | Frame Event return attribute | ^("YES!") | 
 ^ | Return statement | ^ |
