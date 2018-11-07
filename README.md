@@ -118,6 +118,10 @@ class MyController {}
 
 // Implementation
  
+    	// -machine-
+    
+   	var _state(e:FrameEvent) = Begin	// initialize start state
+	
 	func Begin(e:FrameEvent) {		// $Begin
 		if (e._msg == ">>") {		// |>>|
 		    _transition(Working)	// -> $Working
@@ -147,9 +151,60 @@ class MyController {}
 		    return			// ^
 		}	
 	}  
+	
+	func _transition(newState:FrameState) {
+		_state(new FrameEvent("<"))	// send exit event
+		_state = newState		// change state
+		_state(new FrameEvent(">"))	// send enter event
+	}
 
 
 ```
 
 ## Event Handlers
 
+	$Working => $BaseStateOrMode
+		|>>| startMachine() ^		// start machine event
+		|>| enterState() ^		// enter state event
+		|e1| processE1(@[x] @[y]) ^	// packed param passing
+		|e2|[x y] processE2(x y) ^	// unpacked param passing
+		|<| exitState() ^		// exit state event
+		|<<| stopMachine() ^		// stop machine event
+		
+		
+	func Working(e:FrameEvent) {		// $Working
+		if (e._msg == ">>") {		// |>|
+		    	startMachine()		// startMachine()
+		    	return			// ^
+		}
+		if (e._msg == ">") {		// |>|
+		    	enterState()		// enterState()
+		    	return			// ^
+		}
+		if (e._msg == "e1") {		// |e1|
+			processE1( 		// processE1(@[x] @[y])
+				e.params['x']
+			)	e.params['y']
+		    	return			// ^
+		}
+		if (e._msg == "e2") {		// |e1|
+			var x = e.params['x']	// [x y]
+			var y = e.params['y']
+			processE2(x,y)		// processE2(x y)
+		    	return			// ^
+		}
+		if (e._msg == ">") {		// |>|
+		    	enterState()		// enterState()
+		    	return			// ^
+		}
+		if (e._msg == "<") {		// |<|
+		    	exitState()		// exitState()
+		    	return			// ^
+		}
+		if (e._msg == "<<") {		// |<<|
+		    	stopMachine()		// stopMachine()
+		    	return			// ^
+		}
+
+		BaseStateOrMode(e)		// $Working => $BaseStateOrMode
+	} 
