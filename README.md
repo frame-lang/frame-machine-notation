@@ -161,9 +161,9 @@ class MyController {}
 
 ```
 
-## Event Handlers
+## State Event Handlers
 
-	$Working => $BaseStateOrMode
+	$Working 
 		|>>| startMachine() ^		// start machine event
 		|>| enterState() ^		// enter state event
 		|e1| processE1(@[x] @[y]) ^	// packed param passing
@@ -205,6 +205,4 @@ class MyController {}
 		    	stopMachine()		// stopMachine()
 		    	return			// ^
 		}
-
-		BaseStateOrMode(e)		// $Working => $BaseStateOrMode
 	} 
