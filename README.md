@@ -209,3 +209,50 @@ class MyController {}
 		}
 	} 
 ```
+
+## Control Flow
+
+### Boolean if-then-else conditional
+
+```
+
+// FMN
+
+?(c1) {
+	doIsTrue()
+} : {
+	doIsFalse()
+}
+
+// Pseudocode Implementation
+
+if (c1) {
+	doIsTrue()
+} else {
+	doIsFalse()
+}
+```
+### Boolean if-then-else if-else conditional
+
+```
+
+// FMN
+
+?(c1) {
+	doIfC1True()
+} : ?(c2) {
+	doIfC2True()
+} : {
+	doIfNotC1OrC2True()
+}
+
+// Pseudocode Implementation
+
+if (c1) {
+	doIfC1True()
+} else if (c2) {
+	doIfC2True()
+} else {
+	doIfNotC1OrC2True()
+}
+```
