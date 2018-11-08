@@ -243,7 +243,7 @@ if (c1) {
 } : ?(c2) {
 	doIfC2True()
 } : {
-	doIfNotC1OrC2True()
+	doIfNotC1orC2True()
 }
 
 // Pseudocode Implementation
@@ -253,6 +253,6 @@ if (c1) {
 } else if (c2) {
 	doIfC2True()
 } else {
-	doIfNotC1OrC2True()
+	doIfNotC1orC2True()
 }
 ```
