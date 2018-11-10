@@ -286,7 +286,7 @@ b ?! bIsFalse() : bIsTrue() ::
 		</td>
 		<td align="left">
 <pre>
-if (b) {	// b ?!
+if (!b) {	// b ?!
     bIsFalse()	// bIsFalse()
 } else {	// :
     bIsTrue() 	// bIsTrue()
