@@ -1,5 +1,3 @@
-
-
 # Frame Machine Notation (FMN) 0.1
 
 
@@ -225,73 +223,4 @@ class MyController {
 
 ### Boolean if-then-else conditional
 
-<table>
-	<tr>
-		<th>
-			FMN
-		</th>
-		<th>
-			Implementation
-		</th>
-	</tr>
-	<tr>
-		<td>
-<pre>
-b ? bIsTrue() ::
-</pre>
-		</td>
-		<td align="left">
-<pre>
-if (b) {	// b ?
-    bIsTrue()	// bIsTrue()
-}		// ::
-</pre>
-		</td>
-	</tr>
-	<tr>
-		<td>
-<pre>
-b ?! bIsFalse() ::
-</pre>
-		</td>
-		<td align="left">
-<pre>
-if (!b) {	// b ?!
-    bIsFalse()	// bIsFalse()
-}		// ::
-</pre>
-		</td>
-	</tr>
-	<tr>
-		<td>
-<pre>
-b ? bIsTrue() : bIsFalse() ::
-</pre>
-		</td>
-		<td align="left">
-<pre>
-if (b) {	// b ?
-    bIsTrue()	// bIsTrue()
-} else {	// :
-    bIsFalse()  // bIsFalse()
-} 		// ::
-</pre>
-		</td>
-	</tr>
-	<tr>
-		<td>
-<pre>
-b ?! bIsFalse() : bIsTrue() ::
-</pre>
-		</td>
-		<td align="left">
-<pre>
-if (!b) {	// b ?!
-    bIsFalse()	// bIsFalse()
-} else {	// :
-    bIsTrue() 	// bIsTrue()
-} 		// ::
-</pre>
-		</td>
-	</tr>
-</table>
+<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Screen%20Shot%202018-11-10%20at%2010.36.51%20AM.png" width="600px"/>
