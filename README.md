@@ -224,45 +224,73 @@ class MyController {
 
 ### Boolean if-then-else conditional
 
-```
-
-// FMN
-
-?(c1) {
-	doIsTrue()
-} : {
-	doIsFalse()
-}
-
-// Pseudocode Implementation
-
-if (c1) {
-	doIsTrue()
-} else {
-	doIsFalse()
-}
-```
-### Boolean if-then-else if-else conditional
-
-```
-
-// FMN
-
-?(c1) {
-	doIfC1True()
-} : ?(c2) {
-	doIfC2True()
-} : {
-	doIfNotC1orC2True()
-}
-
-// Pseudocode Implementation
-
-if (c1) {
-	doIfC1True()
-} else if (c2) {
-	doIfC2True()
-} else {
-	doIfNotC1orC2True()
-}
-```
+<table>
+	<tr>
+		<th>
+			FMN
+		</th>
+		<th>
+			Implementation
+		</th>
+	</tr>
+	<tr>
+		<td>
+<pre>
+b ? bIsTrue() ::
+</pre>
+		</td>
+		<td align="left">
+<pre>
+if (b) {	// b ?
+    bIsTrue()	// bIsTrue()
+}		// ::
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<pre>
+b ?! bIsFalse() ::
+</pre>
+		</td>
+		<td align="left">
+<pre>
+if (!b) {	// b ?!
+    bIsFalse()	// bIsFalse()
+}		// ::
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<pre>
+b ? bIsTrue() : bIsFalse() ::
+</pre>
+		</td>
+		<td align="left">
+<pre>
+if (b) {	// b ?
+    bIsTrue()	// bIsTrue()
+} else {	// :
+    bIsFalse()  // bIsFalse()
+} 		// ::
+</pre>
+		</td>
+	</tr>
+	<tr>
+		<td>
+<pre>
+b ?! bIsFalse() : bIsTrue() ::
+</pre>
+		</td>
+		<td align="left">
+<pre>
+if (b) {	// b ?!
+    bIsFalse()	// bIsFalse()
+} else {	// :
+    bIsTrue() 	// bIsTrue()
+} 		// ::
+</pre>
+		</td>
+	</tr>
+</table>
