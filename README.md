@@ -35,10 +35,20 @@ A controller is a Frame machine, or automaton, that contains blocks (or sections
 // FMN
 
 #MyController
+	-interface-
+	-machine-
+	-actions-
+	-domain-
 
 // Pseudocode implementation
 
-class MyController {}
+class MyController {
+
+	// -interface-
+	// -machine-
+	// -actions-
+	// -domain-
+}
 ```
 
 ## Interface Block
