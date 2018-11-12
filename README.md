@@ -1,5 +1,7 @@
 # Frame Machine Notation (FMN) 0.1
 
+See [Medium for articles about Frame!](https://medium.com/@mark.truluck).
+
 
 FMN Syntax | Definition | Example | Gist
 :---: | :---: | :---: | :---:
