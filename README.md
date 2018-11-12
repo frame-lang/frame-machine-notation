@@ -26,7 +26,27 @@ $ | Frame State | $Begin |
 // this is a comment
 ```
 
-## Controller
+## Frame Event
+
+Frame Events are essential to the notation and the implementation.  The notation assumes three mandatory fields for a FrameEvent - **(message, parameters, return value)**.  Frame Events have a special type symbol `@` that refers to the current event in scope (there is almost always only one).
+
+The pseudocode for the implementation is:
+
+```
+ class FrameEvent {
+ 
+   var _msg:String
+   var _params:Object
+   var _return:Object
+   
+   FrameEvent(msg:String, params:Object = null) {
+      _msg = msg
+      _params = params
+   }
+}
+```
+
+## Frame Controller
 
 A controller is a Frame machine, or automaton, that contains blocks (or sections) that define the internal structure of the machine.  From an implementation standpoint, the reference architecture for implementing a Frame controller is defined as an object-oriented class, but this is for convieniece and not a requirement.
 
