@@ -60,6 +60,7 @@ A controller is a Frame machine, or automaton, that contains blocks (or sections
 	-machine-
 	-actions-
 	-domain-
+##  // optional
 
 // Pseudocode implementation
 
