@@ -1,6 +1,6 @@
 # Frame Machine Notation (FMN) 0.1.0
 
-Frame's mission is to be the simplest, easiest and most intuitive way to specify and implement Finite State Machines (FSMs) - aka "Automata" - in any object-oriented language.
+Frame's mission is to be the easiest and most intuitive way to specify and implement Finite State Machines (FSMs) - aka "Automata" - in any object-oriented language.
 
 ### See [Medium for articles about Frame!](https://medium.com/@mark.truluck)
 
