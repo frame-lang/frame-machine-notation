@@ -248,7 +248,7 @@ class MyController {
 
 ### Boolean if-then-else conditional
 
-<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operators.png" width="600px"/>
+<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operators.png" width="300px"/>
 
 <image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operator%20Examples.png" width="600px"/>
 
