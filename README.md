@@ -402,8 +402,8 @@ if (userName == "bill" || userName == "steve") {
 
 Two special string matches exist that can be escaped using \:
 
-/\_/ : match single underscore  
-/\*/ : match single star  
+`/\_/` : match single underscore  
+`/\*/` : match single star  
 
 ```
 // FMN
