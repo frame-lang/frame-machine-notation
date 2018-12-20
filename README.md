@@ -437,10 +437,10 @@ Number matches can be on discrete values:
 // FMN
 
 x ?#
-	/1/ small() 
-	/10/ medium()
+	/1/   small() 
+	/10/  medium()
 	/100/ large()	
-	/*/ otherSize()
+	/*/   otherSize()
 ::
 
 // Pseudocode implementation
