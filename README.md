@@ -263,29 +263,58 @@ The first routing syntax is for simple Boolean tests.
 Boolean expressions can be enclosed in parenthesis for clarity:
 
 ```
+// FMN
+
 (x < 10)  ? small() :
 (x > 100) ? large() :
 	    justRight()
 ::
+
+// Pseudocode implementation
+
 ```
 
 or omitted:
 
 ```
+// FMN
+
 isSmall(x) ? small() :
 isLarge(x) ? large() :
 	     justRight()
 ::
 
+// Pseudocode implementation
+
+if (isSmall(x)) {
+	small()
+} else if (isLarge(x)) {
+	large()
+} else {
+	justRight()
+}
 ```
 
 or mixed:
 
 ```
-( isSmall(x) ) ? small() :
-x > 100        ? large() :
-		 justRight()
+// FMN
+
+(isSmall(x))  ? small() :
+x > 100       ? large() :
+		justRight()
 ::
+
+// Pseudocode implementation
+
+if (isSmall(x)) {
+	small()
+} else if (x > 100) {
+	large()
+} else {
+	justRight()
+}
+
 ```
 
 Here is an example demonstrating a series of validation tests on an updated name:
@@ -343,16 +372,16 @@ For instance:
 // FMN
 
 userName ?~ 
-	/bill/ matchBill() 
-	/steve/ matchSteve()
+	/bill/ matchedBill() 
+	/steve/ matchedSteve()
 ::
 
 // Pseudocode implementation
 
 if (userName == "bill") {
-	matchBill()
+	matchedBill()
 } else if (userName == "steve") {
-	matchSteve()
+	matchedSteve()
 }
 ```
 Tests can be done for the union of matches:
@@ -361,13 +390,13 @@ Tests can be done for the union of matches:
 // FMN
 
 userName ?~ 
-	/bill/steve/ matchBillOrSteve() 
+	/bill/steve/ matchedBillOrSteve() 
 ::
 
 // Pseudocode implementation
 
 if (userName == "bill" || userName == "steve") {
-	matchBillOrSteve()
+	matchedBillOrSteve()
 } 
 ```
 
@@ -380,27 +409,25 @@ Two special string matches exist that can be escaped using \:
 // FMN
 
 userName ?~
-	/bill/steve/ matchBillOrSteve() 
-	/_/  matchNull()	
-/\_/ matchUnderscore()			
-	/*/  defaultMatch() 	
-	/\*/ matchStar()
+	/bill/steve/ matchedBillOrSteve() 
+	/_/  matchedNull()	
+	/\_/ matchedUnderscore()			
+	/\*/ matchedStar()
+	/*/  matchedDefault() 	
 ::
 
 // Pseudocode implementation
 
 if (userName == "bill" || userName == "steve") {  
-	matchBillOrSteve()
+	matchedBillOrSteve()
+} else if (userName == null) {
+	matchedNull()
 } else if (userName == "_") {
-	matchUnderscore()
-} else if (userName == null) {
-	matchNull()
-} else if (userName == null) {
-	nullMatch()
+	matchedUnderscore()
 } else if (userName == "*") {
-	matchStar()
+	matchedStar()
 } else {
-	defaultMatch()
+	matchedDefault()
 }
 ```
 
