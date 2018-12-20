@@ -432,11 +432,12 @@ if (x == 1) {
 Frame supports number ranges through the following range operator syntax:
 
 ```
-.. 	// inclusive range   
-... 	// infinity   
-..< 	// less than   
-<.. 	// greater than   
-<..< 	// between not including   
+min..max 	// inclusive range [min, max]
+min... 		// min to positive infinity [min, \infty)
+...max		// negative infinity to max (-\infty, max]
+min..<max 	// min up to max [min, max)   
+min<..max 	// after min up to max (min, max]   
+min<..<max 	// between min and max (min, max)   
 ```
 
 An example:
