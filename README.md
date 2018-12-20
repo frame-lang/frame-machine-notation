@@ -431,11 +431,11 @@ if (x == 1) {
 
 Frame supports number ranges through the following range operator syntax:
 
-.. 	// inclusive range
-... 	// infinity
-..< 	// less than
-<.. 	// greater than
-<..< 	// between not including
+.. 	// inclusive range . 
+... 	// infinity . 
+..< 	// less than . 
+<.. 	// greater than . 
+<..< 	// between not including . 
 
 An example:
 
