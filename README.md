@@ -203,11 +203,11 @@ class MyController {
 
 	$Working 
 		|>>| startMachine() ^		// start machine event
+		|<<| stopMachine() ^		// stop machine event
 		|>| enterState() ^		// enter state event
+		|<| exitState() ^		// exit state event
 		|e1| processE1(@[x] @[y]) ^	// packed param passing
 		|e2|[x y] processE2(x y) ^	// unpacked param passing
-		|<| exitState() ^		// exit state event
-		|<<| stopMachine() ^		// stop machine event
 		
 
 // Pseudocode Implementation
@@ -217,8 +217,16 @@ class MyController {
 		    	startMachine()		// startMachine()
 		    	return			// ^
 		}
+		if (e._msg == "<<") {		// |<<|
+		    	stopMachine()		// stopMachine()
+		    	return			// ^
+		}
 		if (e._msg == ">") {		// |>|
 		    	enterState()		// enterState()
+		    	return			// ^
+		}
+		if (e._msg == "<") {		// |<|
+		    	exitState()		// exitState()
 		    	return			// ^
 		}
 		if (e._msg == "e1") {		// |e1|
@@ -233,14 +241,6 @@ class MyController {
 			processE2(x,y)		// processE2(x y)
 		    	return			// ^
 		}
-		if (e._msg == "<") {		// |<|
-		    	exitState()		// exitState()
-		    	return			// ^
-		}
-		if (e._msg == "<<") {		// |<<|
-		    	stopMachine()		// stopMachine()
-		    	return			// ^
-		}
 	} 
 ```
 
@@ -252,7 +252,63 @@ class MyController {
 
 <image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operator%20Examples.png" width="600px"/>
 
+Boolean expressions can be enclosed in parenthesis for clarity:
 
+```
+(x < 10)  ? small() :
+(x > 100) ? large() :
+	     justRight()
+::
+```
 
+or omitted:
 
+```
+isSmall(x) ? small() :
+isLarge(x) ? large() :
+		justRight()
+::
+
+```
+
+or mixed:
+
+```
+( isSmall(x) ) ? small() :
+x > 100        ? large() :
+		    justRight()
+::
+```
+
+Here is an example demonstrating a series of validation tests on an updated name:
+
+```
+// FMN
+
+$UnvalidatedName
+	|updateName|
+		validateFirstName(@[firstName]) ?! alert("First Name Error") ^ :
+		validateLastName(@[lastName])   ?! alert("Last Name Error") ^  :
+						     -> $ValidatedName ^ 		   ::
+		^
+
+// Pseudocode implementation
+
+func UnvalidatedName(e:FrameEvent) {
+	if (e._message == "updateName") {
+		if (!validateFirstName(e._params["firstName"])) {
+			alert("First Name Error")
+			return
+		} else if (!validateLastName(e._params["lastName"])) {
+			alert("Last Name Error")
+			return
+		} else {
+		_transition(ValidatedName)
+		return
+	} 
+
+	return
+	}
+}
+```
 
