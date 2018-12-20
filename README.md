@@ -297,7 +297,7 @@ $UnvalidatedName
 	|updateName|
 		validateFirstName(@[firstName]) ?! alert("First Name Error") ^ :
 		validateLastName(@[lastName])   ?! alert("Last Name Error") ^  :
-						     -> $ValidatedName ^       ::
+						   -> $ValidatedName ^         ::
 		^
 
 // Pseudocode implementation
@@ -319,4 +319,152 @@ func UnvalidatedName(e:FrameEvent) {
 	}
 }
 ```
+### Match Routing
 
+Frame also has syntax for matching values to determine the control flow.  The general syntax is:
+```
+<test_value> ?<match_type> 
+	/<match_value>/ <behavior>
+	/<match_value>/ <behavior>
+	/_/ 		<null_behavior>
+	/*/ 		<default_behavior>
+::
+```
+
+The possible match types are:
+
+`~` : match string
+`#1 : match number or range
+`*` : match regular expression
+
+For instance:
+
+```
+// FMN
+
+userName ?~ 
+	/bill/ matchBill() 
+	/steve/ matchSteve()
+::
+
+// Pseudocode implementation
+
+if (userName == "bill") {
+	matchBill()
+} else if (userName == "steve") {
+	matchSteve()
+}
+```
+Tests can be done for the union of matches:
+
+```
+// FMN
+
+userName ?~ 
+	/bill/steve/ matchBillOrSteve() 
+::
+
+// Pseudocode implementation
+
+if (userName == "bill" || userName == "steve") {
+	matchBillOrSteve()
+} 
+```
+
+Two special string matches exist that can be escaped using \:
+
+/\_/ : match single underscore
+/\*/ : match single star
+
+```
+// FMN
+
+userName ?~
+	/bill/steve/ matchBillOrSteve() 
+	/_/  matchNull()	
+/\_/ matchUnderscore()			
+	/*/  defaultMatch() 	
+	/\*/ matchStar()
+::
+
+// Pseudocode implementation
+
+if (userName == "bill" || userName == "steve") {  
+	matchBillOrSteve()
+} else if (userName == "_") {
+	matchUnderscore()
+} else if (userName == null) {
+	matchNull()
+} else if (userName == null) {
+	nullMatch()
+} else if (userName == "*") {
+	matchStar()
+} else {
+	defaultMatch()
+}
+```
+
+Number matches can be on discrete values:
+
+```
+// FMN
+
+x ?#
+	/1/ small() 
+	/10/ medium()
+	/100/ large()	
+	/*/ otherSize()
+::
+
+// Pseudocode implementation
+
+if (x == 1) {  
+	small()
+} else if (x == 10) {
+	medium()
+} else if (x == 100) {
+	large()
+} else {
+	otherSize()
+}
+```
+
+Frame supports number ranges through the following range operator syntax:
+
+.. 	// inclusive range
+... 	// infinity
+..< 	// less than
+<.. 	// greater than
+<..< 	// between not including
+
+An example:
+
+```
+// FMN
+
+x ?# 
+	/...<10/ small()   		// negative infinity to < 10
+	/10..<100/ medium()		// 10 to < 100
+	/100.../ large()		// 100 to positive infinity
+::
+ 
+// Pseudocode implementation
+
+if (x < 10) {  
+	small()
+} else if (10 =< x && x < 100) {
+	medium()
+} else if (100 =< x) {
+	large()
+}
+```
+
+Frame also can support regular expression matching, but does not currently provide a detailed specification for what flavor of regex language to use.  This aspect of Frame will be more tightly defined in future versions of the notation:
+
+```
+animals ?* 
+
+	/dogs?/ dogOrPack() 
+	/cats?/ catOrCowder()
+::
+```
