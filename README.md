@@ -80,7 +80,8 @@ class MyController {
 ```
 // FMN
 
--interface-                             // interface block declaration
+	-interface-                     // interface block declaration
+	
         m1                              // no parameters or return value
         m2[param1 param2]               // typeless parameters
         m3[param1:string param2:int]    // typed parameters
@@ -136,7 +137,8 @@ class MyController {
 ```
 // FMN
 
--machine-                             		// machine block declaration
+	-machine-                             	// machine block declaration
+	
 	$Begin 					// $    -- token indicates state definition
 		|>>| 				// |>>| -- start event selector
 			-> $Working 		// ->   -- transition token
@@ -154,8 +156,6 @@ class MyController {
 // Pseudocode Implementation
  
     	// -machine-
-    
-   	var _state(e:FrameEvent) = Begin	// initialize start state
 	
 	func Begin(e:FrameEvent) {		// $Begin
 		if (e._msg == ">>") {		// |>>|
@@ -187,6 +187,10 @@ class MyController {
 		}	
 	}  
 	
+	//-- machinery and mechanisms --//
+	    
+   	var _state(e:FrameEvent) = Begin	// initialize start state
+
 	func _transition(newState:FrameState) {
 		_state(new FrameEvent("<"))	// send exit event
 		_state = newState		// change state
@@ -293,7 +297,7 @@ $UnvalidatedName
 	|updateName|
 		validateFirstName(@[firstName]) ?! alert("First Name Error") ^ :
 		validateLastName(@[lastName])   ?! alert("Last Name Error") ^  :
-						     -> $ValidatedName ^ 		   ::
+						     -> $ValidatedName ^       ::
 		^
 
 // Pseudocode implementation
@@ -310,9 +314,8 @@ func UnvalidatedName(e:FrameEvent) {
 			_transition(ValidatedName)
 			return
 		}
-	} 
 
-	return
+		return
 	}
 }
 ```
