@@ -248,16 +248,16 @@ class MyController {
 
 ### Boolean if-then-else conditional
 
-<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operators.png" width="300px"/>
+<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operators.png" width="200px"/>
 
-<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operator%20Examples.png" width="600px"/>
+<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operator%20Examples.png" width="400px"/>
 
 Boolean expressions can be enclosed in parenthesis for clarity:
 
 ```
 (x < 10)  ? small() :
 (x > 100) ? large() :
-	     justRight()
+	    justRight()
 ::
 ```
 
@@ -266,7 +266,7 @@ or omitted:
 ```
 isSmall(x) ? small() :
 isLarge(x) ? large() :
-		justRight()
+	     justRight()
 ::
 
 ```
@@ -276,7 +276,7 @@ or mixed:
 ```
 ( isSmall(x) ) ? small() :
 x > 100        ? large() :
-		    justRight()
+		 justRight()
 ::
 ```
 
@@ -303,8 +303,9 @@ func UnvalidatedName(e:FrameEvent) {
 			alert("Last Name Error")
 			return
 		} else {
-		_transition(ValidatedName)
-		return
+			_transition(ValidatedName)
+			return
+		}
 	} 
 
 	return
