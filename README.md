@@ -362,9 +362,9 @@ Frame also has syntax for matching values to determine the control flow.  The ge
 
 The possible match types are:
 
-`~` : match string
-`#1 : match number or range
-`*` : match regular expression
+`~` : match string  
+`#` : match number or range  
+`*` : match regular expression . 
 
 For instance:
 
@@ -402,8 +402,8 @@ if (userName == "bill" || userName == "steve") {
 
 Two special string matches exist that can be escaped using \:
 
-/\_/ : match single underscore
-/\*/ : match single star
+/\_/ : match single underscore  
+/\*/ : match single star  
 
 ```
 // FMN
