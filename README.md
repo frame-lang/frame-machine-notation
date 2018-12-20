@@ -246,11 +246,15 @@ class MyController {
 
 ## Control Flow
 
-### Boolean if-then-else conditional
+The Frame notation for routing control flow is inspired by the C ternary operator.  However it has been modified to handle a wide range of branching scenarios.
+
+### Boolean routing
+
+The first routing syntax is for simple Boolean tests.  
 
 <image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operators.png" width="200px"/>
 
-<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operator%20Examples.png" width="400px"/>
+<image src="https://raw.githubusercontent.com/frame-lang/frame-machine-notation/master/Frame%20Conditional%20Operator%20Examples.png" width="500px"/>
 
 Boolean expressions can be enclosed in parenthesis for clarity:
 
