@@ -460,8 +460,8 @@ Frame supports number ranges through the following range operator syntax:
 
 ```
 min..max 	// inclusive range [min, max]
-min... 		// min to positive infinity [min, \infty)
-...max		// negative infinity to max (-\infty, max]
+min... 		// min to positive infinity [min, infinity)
+...max		// negative infinity to max (-infinity, max]
 min..<max 	// min up to max [min, max)   
 min<..max 	// after min up to max (min, max]   
 min<..<max 	// between min and max (min, max)   
