@@ -1,4 +1,4 @@
-# Frame Machine Notation (FMN) 0.1.0
+# Frame Machine Notation (FMN) 0.2.0
 
 Frame's mission is to be the easiest and most intuitive way to specify and implement Finite State Machines (FSMs) - aka "Automata" - in any object-oriented language.
 
@@ -265,7 +265,7 @@ Boolean expressions can be enclosed in parenthesis for clarity:
 ```
 // FMN
 
-(x < 10)  ? small() :
+(x < 10)  ? small() :>
 (x > 100) ? large() :
 	    justRight()
 ::
@@ -279,7 +279,7 @@ or omitted:
 ```
 // FMN
 
-isSmall(x) ? small() :
+isSmall(x) ? small() :>
 isLarge(x) ? large() :
 	     justRight()
 ::
@@ -300,7 +300,7 @@ or mixed:
 ```
 // FMN
 
-(isSmall(x))  ? small() :
+(isSmall(x))  ? small() :>
 x > 100       ? large() :
 		justRight()
 ::
@@ -324,7 +324,7 @@ Here is an example demonstrating a series of validation tests on an updated name
 
 $UnvalidatedName
 	|updateName|
-		validateFirstName(@[firstName]) ?! alert("First Name Error") ^ :
+		validateFirstName(@[firstName]) ?! alert("First Name Error") ^ :>
 		validateLastName(@[lastName])   ?! alert("Last Name Error") ^  :
 						   -> $ValidatedName ^         ::
 		^
