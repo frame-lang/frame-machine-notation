@@ -258,7 +258,7 @@ The first routing syntax is for simple Boolean tests.
 
 <image src="Frame Conditional Operators.png" width="300px"/>
 
-<image src="Frame Conditional Operator Examples.png" width="300px"/>
+<image src="Frame Conditional Operator Examples.png" width="600px"/>
 
 Boolean expressions can be enclosed in parenthesis for clarity:
 
