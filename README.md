@@ -18,8 +18,10 @@ $ | Frame State | $Begin |
 @&#124;>&#124; | Frame enter state message | @&#124;>&#124; |
 @&#124;<&#124; | Frame exit state message | @&#124;<&#124; |
 @[param] or [param] | Frame Event parameter attribute | @[firstName] |
-@^ or ^(expr) | Frame Event return attribute | ^("YES!") | 
 ^ | Return statement | ^ |
+@^ or ^(expr) | Frame Event return attribute | ^("YES!") | 
+> | Continue (break) | > | 
+
 ->> | Change state operator | ->> $Working | [Change State](https://gist.github.com/frame-lang/ebec407ea6956e1d9dd7d0c3aa6a0df1)
 -> | Transition operator | -> $Working | [Transition](https://gist.github.com/frame-lang/47cb1e87715c38861a5b0ebbda5e3bce)
 
@@ -52,7 +54,7 @@ The pseudocode for the implementation is:
 
 ## Frame Controller
 
-A controller is a Frame machine, or automaton, that contains blocks (or sections) that define the internal structure of the machine.  From an implementation standpoint, the reference architecture for implementing a Frame controller is defined as an object-oriented class, but this is for convieniece and not a requirement.
+A controller is a Frame machine, or automaton, that contains blocks (or sections) that define the internal structure of the machine.  From an implementation standpoint, the reference architecture for implementing a Frame controller is defined as an object-oriented class, but this is for general applicability and not a requirement.
 
 ```
 // FMN
