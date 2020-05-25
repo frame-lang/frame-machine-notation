@@ -20,7 +20,7 @@ $ | Frame State | $Begin |
 @[param] or [param] | Frame Event parameter attribute | @[firstName] |
 ^ | Return statement | ^ |
 @^ or ^(expr) | Frame Event return attribute | ^("YES!") | 
-> | Continue (break) | > | 
+&#62; | Continue (break) | &#62; | 
 ->> | Change state operator | ->> $Working | [Change State](https://gist.github.com/frame-lang/ebec407ea6956e1d9dd7d0c3aa6a0df1)
 -> | Transition operator | -> $Working | [Transition](https://gist.github.com/frame-lang/47cb1e87715c38861a5b0ebbda5e3bce)
 
