@@ -12,7 +12,6 @@ FMN Syntax | Definition | Example | Gist
 $ | Frame State | $Begin | 
 @ | Frame Event | @ | 
 @&#124;message&#124; or &#124;message&#124; | Frame event message selector | &#124;buttonClick&#124; |
-&#124;e1&#124;e2&#124;e3&#124; | Multi-messge selector | &#124;200&#124;201&#124;202&#124; |
 @&#124;>>&#124; | Frame start message | @&#124;>>&#124; | 
 @&#124;<<&#124; | Frame stop message | @&#124;<<&#124; | 
 @&#124;>&#124; | Frame enter state message | @&#124;>&#124; |
